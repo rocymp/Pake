@@ -17,7 +17,7 @@ on:
       url:
         description: 'app url'
         required: true
-        default: 'https://pc.easy-pic.com/'
+        default: 'https://console.easy-pic.com/'
       agentCode:
         description: 'app agent'
         required: true
@@ -43,7 +43,7 @@ on:
         description: 'app url'
         required: true
         type: string
-        default: 'https://pc.easy-pic.com/'
+        default: 'https://console.easy-pic.com/'
       agentCode:
         description: 'app agent'
         required: true
