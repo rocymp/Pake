@@ -56,7 +56,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        build: [macos, windows]
+        build: [linux, macos, windows]
         include:
           - build: linux
             os: ubuntu-latest
@@ -107,7 +107,7 @@ jobs:
           URL: ${{ inputs.url}}${{'?agentCode='}}${{inputs.agentCode }}
         run: |
           npm install
-          npm run build:config
+          # npm run build:config
 
       - name: Build for Ubuntu
         if: matrix.os == 'ubuntu-latest'
@@ -117,6 +117,7 @@ jobs:
           NAME_ZH: ${{ inputs.name_zh }}
           URL: ${{ inputs.url}}${{'?agentCode=linux-'}}${{inputs.agentCode }}
         run: |
+          npm run build:config
           npm run tauri build
           mkdir -p output/linux
           mv src-tauri/target/release/bundle/deb/*.deb output/linux/${{inputs.title}}_`arch`.deb
@@ -130,6 +131,7 @@ jobs:
           NAME_ZH: ${{ inputs.name_zh }}
           URL: ${{ inputs.url}}${{'?agentCode=mac-'}}${{inputs.agentCode }}
         run: |
+          npm run build:config
           rustup target add aarch64-apple-darwin
           rustup target add x86_64-apple-darwin
           npm run tauri build -- --target universal-apple-darwin
@@ -144,6 +146,7 @@ jobs:
           NAME_ZH: ${{ inputs.name_zh }}
           URL: ${{ inputs.url}}${{'?agentCode=win-'}}${{inputs.agentCode }}
         run: |
+          npm run build:config
           npm run tauri build -- --target x86_64-pc-windows-msvc
           New-Item -Path "output\windows" -ItemType Directory
           Move-Item -Path "src-tauri\target\x86_64-pc-windows-msvc\release\bundle\msi\*.msi" -Destination "output\windows\${{inputs.title}}_x64.msi"
