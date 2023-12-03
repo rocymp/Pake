@@ -18,6 +18,10 @@ on:
         description: 'app url'
         required: true
         default: 'https://console.easy-pic.com/'
+      agentCode:
+        description: 'app agent'
+        required: true
+        default: 'easypic'
   workflow_call:
     inputs:
       name:
@@ -40,6 +44,11 @@ on:
         required: true
         type: string
         default: 'https://console.easy-pic.com/'
+      agentCode:
+        description: 'app agent'
+        required: true
+        type: string
+        default: 'easypic'
 
 jobs:
   build_single_app:
@@ -95,7 +104,7 @@ jobs:
           NAME: ${{ inputs.name }}
           TITLE: ${{ inputs.title }}
           NAME_ZH: ${{ inputs.name_zh }}
-          URL: ${{ inputs.url }}
+          URL: ${{ inputs.url + '?agentCode=' + inputs.agentCode }}
         run: |
           npm install
           npm run build:config
