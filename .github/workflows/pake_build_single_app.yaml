@@ -115,6 +115,9 @@ jobs:
           NAME: ${{ inputs.name }}
           TITLE: ${{ inputs.title }}
           NAME_ZH: ${{ inputs.name_zh }}
+          HEIGHT: '780'
+          WIDTH: '1200'
+          TRANSPARENT: 'true'
           URL: ${{ inputs.url}}${{'?agentCode=linux-'}}${{inputs.agentCode }}
         run: |
           npm run build:config
@@ -129,6 +132,9 @@ jobs:
           NAME: ${{ inputs.name }}
           TITLE: ${{ inputs.title }}
           NAME_ZH: ${{ inputs.name_zh }}
+          HEIGHT: '780'
+          WIDTH: '1200'
+          TRANSPARENT: 'true'
           URL: ${{ inputs.url}}${{'?agentCode=mac-'}}${{inputs.agentCode }}
         run: |
           npm run build:config
@@ -144,6 +150,9 @@ jobs:
           NAME: ${{ inputs.name }}
           TITLE: ${{ inputs.title }}
           NAME_ZH: ${{ inputs.name_zh }}
+          HEIGHT: '780'
+          WIDTH: '1200'
+          TRANSPARENT: 'true'
           URL: ${{ inputs.url}}${{'?agentCode=win-'}}${{inputs.agentCode }}
         run: |
           npm run build:config
