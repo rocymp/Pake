@@ -104,7 +104,7 @@ jobs:
           NAME: ${{ inputs.name }}
           TITLE: ${{ inputs.title }}
           NAME_ZH: ${{ inputs.name_zh }}
-          URL: ${{ inputs.url + '?agentCode=' + inputs.agentCode }}
+          URL: ${{ inputs.url }} ${{ '?agentCode=' }} ${{ inputs.agentCode }}
         run: |
           npm install
           npm run build:config
@@ -115,7 +115,7 @@ jobs:
           NAME: ${{ inputs.name }}
           TITLE: ${{ inputs.title }}
           NAME_ZH: ${{ inputs.name_zh }}
-          URL: ${{ inputs.url + '?agentCode=linux-' + inputs.agentCode }}
+          URL: ${{ inputs.url }} ${{ '?agentCode=linux-' }} ${{ inputs.agentCode }}
         run: |
           npm run tauri build
           mkdir -p output/linux
@@ -128,7 +128,7 @@ jobs:
           NAME: ${{ inputs.name }}
           TITLE: ${{ inputs.title }}
           NAME_ZH: ${{ inputs.name_zh }}
-          URL: ${{ inputs.url + '?agentCode=mac-' + inputs.agentCode }}
+          URL: ${{ inputs.url }} ${{ '?agentCode=mac-' }} ${{ inputs.agentCode }}
         run: |
           rustup target add aarch64-apple-darwin
           rustup target add x86_64-apple-darwin
@@ -142,7 +142,7 @@ jobs:
           NAME: ${{ inputs.name }}
           TITLE: ${{ inputs.title }}
           NAME_ZH: ${{ inputs.name_zh }}
-          URL: ${{ inputs.url + '?agentCode=win-' + inputs.agentCode }}
+          URL: ${{ inputs.url }} ${{ '?agentCode=win-' }} ${{ inputs.agentCode }}
         run: |
           npm run tauri build -- --target x86_64-pc-windows-msvc
           New-Item -Path "output\windows" -ItemType Directory
