@@ -58,18 +58,18 @@ jobs:
       matrix:
         build: [linux, macos, windows]
         include:
-          - build: linux
-            os: ubuntu-latest
-            rust: stable
-            target: x86_64-unknown-linux-musl
+          # - build: linux
+          #   os: ubuntu-latest
+          #   rust: stable
+          #   target: x86_64-unknown-linux-musl
           - build: windows
             os: windows-latest
             rust: stable-x86_64-msvc
             target: x86_64-pc-windows-msvc
-          - build: macos
-            os: macos-latest
-            rust: stable
-            target: x86_64-apple-darwin
+          # - build: macos
+          #   os: macos-latest
+          #   rust: stable
+          #   target: x86_64-apple-darwin
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -152,7 +152,6 @@ jobs:
           NAME_ZH: ${{ inputs.name_zh }}
           HEIGHT: '780'
           WIDTH: '1200'
-          TRANSPARENT: true
           URL: ${{ inputs.url}}${{'?agentCode=win-'}}${{inputs.agentCode }}
         run: |
           npm run build:config
